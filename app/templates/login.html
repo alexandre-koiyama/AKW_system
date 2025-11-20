@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block head_extra %}
+    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-yH1VnYyTqB0qkqvYqFf6z1CqJf0o0mQ+vY4UoYkTgVQxN9SgDmpyQhHm4mJ8XoF3J1tqkqRk3C3Qy6Q2lZ5Q1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% endblock %}
+
+{% block body_class %}login-page{% endblock %}
+{% block content %}
+        <div class="login-container">
+            <div class="login-heading">
+                <h2>Welcome</h2>
+                <h3>Login</h3>
+            </div>
+            <div class="screen">
+            <div class="screen__content">
+                <form class="login" method="POST">
+                    <div class="login__field">
+                        <i class="login__icon fa fa-user"></i>
+                        <input type="email" name="email" class="login__input" placeholder="Email" required autocomplete="email">
+                    </div>
+                    <div class="login__field">
+                        <i class="login__icon fa fa-lock"></i>
+                        <input type="password" name="password" id="password" class="login__input" placeholder="Password" required minlength="6" autocomplete="current-password">
+                        <button type="button" class="password-toggle" id="togglePass">SHOW</button>
+                    </div>
+                    <button type="submit" class="button login__submit">
+                        <span class="button__text">Log In</span>
+                        <i class="fa fa-chevron-right"></i>
+                    </button>
+                    <div class="small-links">
+                        <a href="/register">Create account</a>
+                        <a href="#" onclick="alert('Reset not implemented');return false;">Forgot password?</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function(){
+            const toggle = document.getElementById('togglePass');
+            const pwd = document.getElementById('password');
+            toggle.addEventListener('click', () => {
+                const isPwd = pwd.type === 'password';
+                pwd.type = isPwd ? 'text' : 'password';
+                toggle.textContent = isPwd ? 'HIDE' : 'SHOW';
+            });
+        })();
+        </script>
+{% endblock %}

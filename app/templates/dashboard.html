@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block head_extra %}
+    <link rel="stylesheet" href="/static/css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-yH1VnYyTqB0qkqvYqFf6z1CqJf0o0mQ+vY4UoYkTgVQxN9SgDmpyQhHm4mJ8XoF3J1tqkqRk3C3Qy6Q2lZ5Q1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% endblock %}
+
+{% block body_class %}login-page{% endblock %}
+{% block content %}
+<div class="login-container">
+    <div class="login-heading">
+        <h2>Welcome</h2>
+        <h3>Dashboard</h3>
+    </div>
+    <div class="screen">
+        <div class="screen__content">
+            <p style="font-size:.8rem; margin:.25rem 0 1.2rem; color:#555;">Logged in as <strong>{{ user['email'] }}</strong></p>
+            <div style="display:grid; gap:.75rem;">
+                <a href="/cameras" class="button login__submit" style="text-decoration:none; justify-content:flex-start; gap:.6rem;">
+                    <i class="fa fa-video"></i><span class="button__text">Manage Cameras</span>
+                </a>
+                <a href="/settings" class="button login__submit" style="text-decoration:none; justify-content:flex-start; gap:.6rem; background:#5c54b2;">
+                    <i class="fa fa-gear"></i><span class="button__text">Settings</span>
+                </a>
+                <a href="/logout" class="button login__submit" style="text-decoration:none; justify-content:flex-start; gap:.6rem; background:#a84c4c; box-shadow:0 6px 18px -6px rgba(168,76,76,.45);">
+                    <i class="fa fa-right-from-bracket"></i><span class="button__text">Logout</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
